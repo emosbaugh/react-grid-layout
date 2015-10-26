@@ -1,6 +1,5 @@
 'use strict';
 var React = require('react');
-var cloneWithProps = require('react/lib/cloneWithProps');
 var utils = require('./utils');
 var Draggable = require('react-draggable');
 var Resizable = require('react-resizable').Resizable;
@@ -194,7 +193,7 @@ var GridItem = React.createClass({
    * @return {Element}          Child wrapped in Draggable.
    */
   mixinDraggable(child, position) {
-    var start = typeof position.left === "string" ? undefined : {x: position.left, y: position.top};
+    var start = typeof position.left === 'string' ? undefined : {x: position.left, y: position.top};
     return (
       <Draggable
         start={start}
@@ -203,7 +202,7 @@ var GridItem = React.createClass({
         onStart={this.onDragHandler('onDragStart')}
         onDrag={this.onDragHandler('onDrag')}
         handle={this.props.handle}
-        cancel={".react-resizable-handle " + this.props.cancel}
+        cancel={'.react-resizable-handle ' + this.props.cancel}
         useCSSTransforms={this.props.useCSSTransforms}
         >
         {child}
@@ -303,7 +302,7 @@ var GridItem = React.createClass({
     }
 
     // Create the child element. We clone the existing element but modify its className and style.
-    var child = cloneWithProps(this.props.children, {
+    var child = React.cloneElement(this.props.children, {
       // Munge a classname. Use passed in classnames and resizing.
       // React with merge the classNames.
       className: ['react-grid-item', this.props.className, this.state.resizing ? 'resizing' : '',

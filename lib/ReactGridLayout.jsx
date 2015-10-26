@@ -40,7 +40,7 @@ var ReactGridLayout = React.createClass({
 
     layouts: function(props, propName, componentName) {
       if (props.layouts) {
-        throw new Error("ReactGridLayout does not use `layouts`: Use ReactGridLayout.Responsive.");
+        throw new Error('ReactGridLayout does not use `layouts`: Use ReactGridLayout.Responsive.');
       }
     },
 
@@ -92,7 +92,7 @@ var ReactGridLayout = React.createClass({
       var keys = {};
       React.Children.forEach(children, function(child, i, list) {
         if (keys[child.key]) {
-          throw new Error("Duplicate child key found! This will cause problems in ReactGridLayout.");
+          throw new Error('Duplicate child key found! This will cause problems in ReactGridLayout.');
         }
         keys[child.key] = true;
       });

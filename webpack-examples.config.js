@@ -6,12 +6,12 @@ var fs = require('fs');
 module.exports = {
     context: __dirname,
     entry: {
-      commons: ["lodash"],
+      commons: ['lodash'],
     },
     output: {
-        path: __dirname + "/dist",
-        filename: "[name].bundle.js",
-        sourceMapFilename: "[file].map",
+        path: __dirname + '/dist',
+        filename: '[name].bundle.js',
+        sourceMapFilename: '[file].map',
     },
     module: {
       loaders: [
@@ -20,17 +20,17 @@ module.exports = {
     },
     plugins: [
       new webpack.DefinePlugin({
-        "process.env": {
+        'process.env': {
           NODE_ENV: JSON.stringify('development')
         }
       }),
       new webpack.optimize.CommonsChunkPlugin(
-        "commons", "commons.js"),
+        'commons', 'commons.js'),
       new webpack.optimize.OccurenceOrderPlugin(),
       new webpack.optimize.DedupePlugin()
     ],
     resolve: {
-      extensions: ["", ".webpack.js", ".web.js", ".js", ".jsx"],
+      extensions: ['', '.webpack.js', '.web.js', '.js', '.jsx'],
       alias: {'react-grid-layout': __dirname + '/index-dev.js'}
     }
 };
